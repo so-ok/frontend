@@ -1,6 +1,6 @@
 import React from "react";
 import Responsive from "../components/common/Responsive";
-import SampleContainer from "../containers/SampleContainer";
+import SampleContainer from "../containers/sample/SampleContainer";
 
 const MainPage = () => {
   return <Responsive>

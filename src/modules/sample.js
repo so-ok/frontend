@@ -1,5 +1,4 @@
 import {createAction, handleActions} from 'redux-actions';
-import produce from 'immer';
 
 const SAMPLE = 'sample/SAMPLE';
 const CLEAR_SAMPLE = 'sample/SAMPLE_2';
@@ -12,11 +11,9 @@ const initialState = {
 };
 
 const sample = handleActions({
-  [SAMPLE]: (state, action) => {
-    produce(state, (draft) => {
-      draft.sample = action.payload;
-    })
-  }, [CLEAR_SAMPLE]: (state, action) => ({
+  [SAMPLE]: (state, action) => ({
+    ...state, sample: action.payload
+  }), [CLEAR_SAMPLE]: (state, action) => ({
     ...state, sample: initialState['sample']
   })
 }, initialState,);

@@ -1,6 +1,7 @@
 import React from "react";
 import {useDispatch, useSelector} from 'react-redux';
-import {clearSampleAction, sampleAction} from "../modules/sample";
+import {clearSampleAction, sampleAction} from "../../modules/sample";
+import SampleComponent from "../../components/sample/SampleComponent";
 
 const SampleContainer = () => {
   const dispatch = useDispatch();
@@ -20,11 +21,7 @@ const SampleContainer = () => {
     dispatch(clearSampleAction())
   }
 
-  return <div>
-    {heesu}
-    <button onClick={makeHeesu}>희수 만들기</button>
-    <button onClick={removeHeesu}>희수 없애기</button>
-  </div>
+  return <SampleComponent heesu={heesu} makeHeesu={makeHeesu} removeHeesu={removeHeesu}/>
 }
 
 export default SampleContainer;
