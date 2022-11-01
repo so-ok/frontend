@@ -18,7 +18,7 @@ const Header = () => {
         </div>
         <div className='flex justify-center'>
           <input
-            class='p-3 pl-10 w-11/12 text-md text-gray-700 bg-gray-200 rounded-2xl  focus:outline-blue-500'
+            class='p-3 pl-12 w-11/12 text-md text-gray-700 bg-gray-200 rounded-2xl  focus:outline-blue-500'
             type='search'
             name='search'
           ></input>
