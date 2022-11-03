@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
+import tw from "tailwind-styled-components";
 
 import CategoryCard from "./common/CategoryCard";
 import { CATEGORY_LIST } from "./common/CategoryList";
+
+const Container = tw.div`flex pt-4 justify-center`;
+
+const CategoryContainer = tw.div`grid grid-cols-4 w-11/12 gap-3`;
 
 const Category = () => {
   const [categoryList, setCategoryList] = useState(CATEGORY_LIST);
@@ -11,8 +16,8 @@ const Category = () => {
   }, []);
 
   return (
-    <div className='flex pt-4 justify-center'>
-      <div className='grid grid-cols-3 w-11/12 gap-3 lg:grid-cols-4 lg:w-11/12 lg:gap-12'>
+    <Container>
+      <CategoryContainer>
         {categoryList.map(({ name, description, imageUrl, pageUrl }) => (
           <CategoryCard
             name={name}
@@ -21,8 +26,8 @@ const Category = () => {
             pageUrl={pageUrl}
           />
         ))}
-      </div>
-    </div>
+      </CategoryContainer>
+    </Container>
   );
 };
 

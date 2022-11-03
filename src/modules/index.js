@@ -1,14 +1,16 @@
-import {combineReducers} from 'redux';
-import {all} from 'redux-saga/effects';
+import { combineReducers } from "redux";
+import { all } from "redux-saga/effects";
 
-import sample from './sample'
+import pillList, { pillListSaga } from "./PillList";
+import sample from "./sample";
 
 const rootReducer = combineReducers({
-  sample
+  sample,
+  pillList,
 });
 
 export function* rootSaga() {
-  yield all([]);
+  yield all([pillListSaga()]);
 }
 
 export default rootReducer;
