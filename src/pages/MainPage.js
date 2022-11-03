@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+
 import Category from "../components/Category";
 import Header from "../components/common/Header";
 import Loading from "../components/common/Loading";
