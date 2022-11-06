@@ -1,61 +1,87 @@
-import brain from "../../assets/Images/Category/brain.png";
-import eye from "../../assets/Images/Category/eye.png";
-import muscle from "../../assets/Images/Category/muscle.png";
-import stomach from "../../assets/Images/Category/stomach.png";
+import eye from '../../assets/Images/Category/eye.png';
+import stomach from '../../assets/Images/Category/stomach.png';
+import veins from '../../assets/Images/Category/veins.png';
+import bone from '../../assets/Images/Category/x-ray.png';
+import mouth from '../../assets/Images/Category/mouth.png';
+import skin from '../../assets/Images/Category/dermatology.png';
+import fat from '../../assets/Images/Category/obesity.png';
+import joint from '../../assets/Images/Category/pain-in-joints.png';
+import good from '../../assets/Images/Category/water-faucet.png';
+import liver from '../../assets/Images/Category/liver.png';
+import vitamin from '../../assets/Images/Category/vitamins.png';
+import menopause from '../../assets/Images/Category/menopause.png';
 
 export const CATEGORY_LIST = [
   {
-    name: "신경",
-    description: "test",
-    imageUrl: brain,
-    pageUrl: "",
+    name: '장 건강',
+    description: 'test',
+    imageUrl: stomach,
+    pageUrl: '',
   },
   {
-    name: "감각",
-    description: "test",
+    name: '혈행 개선',
+    description: 'test',
+    imageUrl: veins,
+    pageUrl: '',
+  },
+  {
+    name: '체지방 감소',
+    description: 'test',
+    imageUrl: fat,
+    pageUrl: '',
+  },
+  {
+    name: '눈 건강',
+    description: 'test',
     imageUrl: eye,
-    pageUrl: "",
+    pageUrl: '',
   },
   {
-    name: "근육",
-    description: "test",
-    imageUrl: muscle,
-    pageUrl: "",
+    name: '피부 건강',
+    description: 'test',
+    imageUrl: skin,
+    pageUrl: '',
   },
   {
-    name: "소화/대사",
-    description: "test",
-    imageUrl: stomach,
-    pageUrl: "",
+    name: '뼈 건강',
+    description: 'test',
+    imageUrl: bone,
+    pageUrl: '',
   },
   {
-    name: "소화/대사",
-    description: "test",
-    imageUrl: stomach,
-    pageUrl: "",
+    name: '관절 건강',
+    description: 'test',
+    imageUrl: joint,
+    pageUrl: '',
   },
   {
-    name: "소화/대사",
-    description: "test",
-    imageUrl: stomach,
-    pageUrl: "",
+    name: '간 건강',
+    description: 'test',
+    imageUrl: liver,
+    pageUrl: '',
   },
   {
-    name: "소화/대사",
-    description: "test",
-    imageUrl: stomach,
-    pageUrl: "",
+    name: '항산화',
+    description: 'test',
+    imageUrl: vitamin,
+    pageUrl: '',
   },
   {
-    name: "소화/대사",
-    description: "test",
-    imageUrl: stomach,
-    pageUrl: "",
+    name: '전립선 건강',
+    description: 'test',
+    imageUrl: good,
+    pageUrl: '',
   },
   {
-    name: "소화/대사",
-    description: "test",
-    imageUrl: stomach,
-    pageUrl: "",
+    name: '갱년기 건강',
+    description: 'test',
+    imageUrl: menopause,
+    pageUrl: '',
+  },
+  {
+    name: '구강 건강',
+    description: 'test',
+    imageUrl: mouth,
+    pageUrl: '',
   },
 ];
