@@ -1,33 +1,39 @@
-import { createAction, handleActions } from "redux-actions";
+import { createAction, handleActions } from 'redux-actions';
+import { takeLatest } from 'redux-saga/effects';
+import createRequestSaga, {
+  createRequestActionTypes,
+} from '../lib/createRequestSaga';
 
-const ADD_LIST = "pillList/ADD_LIST";
-const LOADING_LIST = "pillList/LOADING_LIST";
+import { list } from '../lib/api/pills';
 
-export const addListAction = createAction(ADD_LIST, (payload) => payload);
-export const loadingListAction = createAction(LOADING_LIST, () => {});
+const [GET_LIST, GET_LIST_SUCCESS, GET_LIST_FAILURE] =
+  createRequestActionTypes('pillList/GET_LIST');
+
+export const addListAction = createAction(GET_LIST, () => {});
+
+const getListSaga = createRequestSaga(GET_LIST, list);
 
 const initialState = {
-  id: null,
-  name: "",
-  nutrient: [],
-  img: "",
+  list: [],
+  pillListError: null,
 };
 
-export function* pillListSaga() {}
+export function* pillListSaga() {
+  yield takeLatest(GET_LIST, getListSaga);
+}
 
 const pillList = handleActions(
   {
-    [ADD_LIST]: (state, payload) => ({
+    [GET_LIST_SUCCESS]: (state, { payload: list }) => ({
       ...state,
-      id: payload.id,
-      nutrient: [payload.nutrients],
+      list,
     }),
-    [LOADING_LIST]: (state, payload) => ({
+    [GET_LIST_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      loading: true,
+      pillListError: error,
     }),
   },
-  initialState
+  initialState,
 );
 
 export default pillList;
