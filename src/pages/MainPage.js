@@ -3,7 +3,7 @@ import React from 'react';
 import Category from '../components/Category';
 import Header from '../components/common/Header';
 import Responsive from '../components/common/Responsive';
-import PillList from '../containers/PillList/PillListContainer';
+import PillList from '../containers/PillListContainer';
 import SampleContainer from '../containers/sample/SampleContainer';
 
 const MainPage = () => {
