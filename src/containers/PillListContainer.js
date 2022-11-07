@@ -10,9 +10,13 @@ const Container = tw.div`flex flex-col pt-4 justify-items-center`;
 
 const PillListContainer = () => {
   const dispatch = useDispatch();
-  const { pillList, pillListError, loading } = useSelector(({ pillList, loading }) => ({
-    pillList: pillList.list, pillListError: pillList.pillListError, loading: loading['pills/GET_LIST'],
-  }));
+  const { pillList, pillListError, loading } = useSelector(
+    ({ pillList, loading }) => ({
+      pillList: pillList.list,
+      pillListError: pillList.pillListError,
+      loading: loading['pills/GET_LIST'],
+    }),
+  );
 
   useEffect(() => {
     dispatch(addListAction());
@@ -24,10 +28,15 @@ const PillListContainer = () => {
     }
   }, [pillListError, pillList, loading]);
 
-  return !loading ? (<Container>
-    {pillList.map(({ id, name, ingredient, imge }) => (
-      <PillCard id={id} name={name} ingredient={ingredient} imge={imge} />))}
-  </Container>) : (<Loading></Loading>);
+  return !loading ? (
+    <Container>
+      {pillList.map(({ id, name, ingredient, imge }) => (
+        <PillCard id={id} name={name} ingredient={ingredient} imge={imge} />
+      ))}
+    </Container>
+  ) : (
+    <Loading></Loading>
+  );
 };
 
 export default PillListContainer;
