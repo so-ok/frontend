@@ -30,8 +30,8 @@ const PillListContainer = () => {
 
   return !loading ? (
     <Container>
-      {pillList.map(({ id, name, ingredient, imge }) => (
-        <PillCard id={id} name={name} ingredient={ingredient} imge={imge} />
+      {pillList.map(({ id, name, ingredient }) => (
+        <PillCard id={id} name={name} ingredient={ingredient} />
       ))}
     </Container>
   ) : (

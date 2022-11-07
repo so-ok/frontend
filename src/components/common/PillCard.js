@@ -1,29 +1,35 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
 
-import Icon from '../../assets/Images/Category/eye.png';
+import Icon from '../../assets/Images/Category/vitamins.png';
 
-const Container = tw.div`w-11/12 mx-auto rounded-xl shadow-md p-4 mt-2`;
+const Container = tw.div`flex flex-row justify-around w-11/12 mx-auto rounded-xl shadow-md p-3 mt-3 bg-white`;
 
-const PillInfo = tw.div`grid grid-cols-6 gap-2`;
+const PillInfo = tw.div`flex flex-col justify-items-center`;
 
-const PillImgContainer = tw.div`row-span-2 mx-auto`;
+const PillImgContainer = tw.div`ml-2 mr-3 rounded-xl bg-stone-100`;
 
-const PillImg = tw.img`w-20 h-20`;
+const PillImg = tw.img`p-3 w-20 h-20 md:w-16 sm:h-16`;
 
-const PillName = tw.p`col-span-3 col-start-3 font-extrabold`;
+const PillName = tw.p`pl-2 font-extrabold`;
 
-const PillIngredient = tw.p`col-span-3 col-start-3`;
+const PillIngredientContainer = tw.div`flex flex-row`;
 
-const PillCard = ({ id, name, ingredient, imge }) => {
+const PillIngredient = tw.div`mx-1 mt-2 text-sm px-2 rose-400 rounded-xl shadow-sm text-white bg-rose-400`;
+
+const PillCard = ({ id, name, ingredient }) => {
   return (
     <Container>
+      <PillImgContainer>
+        <PillImg src={Icon} alt="이미지"></PillImg>
+      </PillImgContainer>
       <PillInfo>
-        <PillImgContainer>
-          <PillImg src={Icon} alt="이미지"></PillImg>
-        </PillImgContainer>
         <PillName>{name}</PillName>
-        <PillIngredient>{ingredient['프로바이오틱스']}</PillIngredient>
+        <PillIngredientContainer>
+          {ingredient.map(({ name }) => {
+            return <PillIngredient>{name}</PillIngredient>;
+          })}
+        </PillIngredientContainer>
       </PillInfo>
     </Container>
   );
