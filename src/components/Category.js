@@ -15,17 +15,21 @@ const Category = () => {
     setCategoryList(CATEGORY_LIST);
   }, []);
 
-  // noinspection JSValidateTypes
-  return <Container>
-    <CategoryContainer>
-      {categoryList.map(({ name, description, imageUrl, pageUrl }) => <CategoryCard
-        name={name}
-        description={description}
-        imageUrl={imageUrl}
-        pageUrl={pageUrl}
-      />)}
-    </CategoryContainer>
-  </Container>;
+  return (
+    <Container>
+      <CategoryContainer>
+        {categoryList.map(({ name, description, imageUrl, pageUrl }) => (
+          <CategoryCard
+            key={name}
+            name={name}
+            description={description}
+            imageUrl={imageUrl}
+            pageUrl={pageUrl}
+          />
+        ))}
+      </CategoryContainer>
+    </Container>
+  );
 };
 
 export default Category;
