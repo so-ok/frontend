@@ -13,7 +13,9 @@ export const finishLoading = createAction(
   (requestType) => requestType,
 );
 
-const initialState = {};
+const initialState = {
+  'pills/GET_LIST': true,
+};
 
 const loading = handleActions(
   {
