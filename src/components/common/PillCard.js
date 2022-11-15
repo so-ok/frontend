@@ -26,7 +26,7 @@ const PillCard = ({ id, name, ingredient }) => {
       <PillInfo>
         <PillName>{name}</PillName>
         <PillIngredientContainer>
-          {ingredient.map(({ name }) => {
+          {ingredient?.map(({ name }) => {
             return <PillIngredient key={name}>{name}</PillIngredient>;
           })}
         </PillIngredientContainer>
