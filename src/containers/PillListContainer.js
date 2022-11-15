@@ -23,7 +23,7 @@ const PillListContainer = () => {
     if (pillListError) {
       console.error(pillListError);
     }
-  }, [pillListError, pillList, loading]);
+  }, [pillListError]);
 
   return !loading ? (
     <PillListComponent pillList={pillList}></PillListComponent>
