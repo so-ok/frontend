@@ -1,4 +1,4 @@
 import client from './client';
 
-export const requestPillList = () => client.post('/api/pill/search', { attentions: ['위 건강'] });
+export const requestPillList = ({ category }) => client.post('/api/pill/search', { attentions: [category] });
 

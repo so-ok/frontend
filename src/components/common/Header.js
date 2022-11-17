@@ -26,10 +26,10 @@ const Header = () => {
       </HamburgerContainer>
       <SearchContainer>
         <SearchIconContainer>
-          <SearchIcon src={search} alt="검색"></SearchIcon>
+          <SearchIcon src={search} alt='검색'></SearchIcon>
         </SearchIconContainer>
         <SearchBarContainer>
-          <SearchBar type="search" name="search"></SearchBar>
+          <SearchBar type='search' name='search'></SearchBar>
         </SearchBarContainer>
       </SearchContainer>
     </HeaderContainer>
