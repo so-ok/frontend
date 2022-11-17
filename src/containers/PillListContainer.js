@@ -7,17 +7,18 @@ import PillListComponent from '../components/PillListComponent';
 
 const PillListContainer = () => {
   const dispatch = useDispatch();
-  const { pillList, pillListError, loading } = useSelector(
-    ({ pillList, loading }) => ({
+  const { pillList, pillListError, loading, category } = useSelector(
+    ({ pillList, loading, category }) => ({
       pillList: pillList.list,
       pillListError: pillList.pillListError,
       loading: loading['pills/GET_LIST'],
+      category: category.category,
     }),
   );
 
   useEffect(() => {
-    dispatch(addListAction());
-  }, [dispatch]);
+    dispatch(addListAction(category));
+  }, [dispatch, category]);
 
   useEffect(() => {
     if (pillListError) {

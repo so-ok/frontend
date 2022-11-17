@@ -15,8 +15,8 @@ const PillListComponent = ({ pillList }) => {
         <img src={test} alt='list_type' className='w-7 h-7' />
       </div>
       <PillListContainer>
-        {pillList['content']?.map(({ id, name, ingredient }) => (
-          <PillCard key={id} name={name} ingredient={ingredient} />
+        {pillList['content']?.map(({ id, name, ingredients }) => (
+          <PillCard key={id} name={name} ingredient={ingredients} />
         ))}
       </PillListContainer>
     </Container>

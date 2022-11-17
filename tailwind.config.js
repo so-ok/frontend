@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'sm-phone': '300px',
+        'pad': '500px',
+      }
+    },
   },
   plugins: [],
 }
