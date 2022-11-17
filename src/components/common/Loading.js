@@ -1,7 +1,7 @@
-import React from "react";
-import tw from "tailwind-styled-components";
+import React from 'react';
+import tw from 'tailwind-styled-components';
 
-import loading from "../../assets/Images/loading.png";
+import loading from '../../assets/Images/loading.png';
 
 const Container = tw.section`flex justify-center items-center`;
 
