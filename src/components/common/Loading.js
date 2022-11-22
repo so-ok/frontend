@@ -8,7 +8,7 @@ const Container = tw.section`flex justify-center items-center`;
 const GrowLoading = tw.img`animate-spin w-10 h-10`;
 
 const Loading = () => (
-  <Container aria-label='현재 로딩 중 화면입니다'>
+  <Container aria-label='로딩중'>
     <GrowLoading src={loading} alt='Loading'></GrowLoading>
   </Container>
 );
