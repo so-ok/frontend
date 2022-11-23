@@ -1,20 +1,24 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
-import PillCard from './common/PillCard';
-import ToggleButton from './common/ToggleButton';
 
-const Container = tw.div`flex flex-col`;
+import PillListCard from './common/PillListCard';
+import PillBlockCard from './common/PillBlockCard';
+import { useSelector } from 'react-redux';
 
-const PillListContainer = tw.div`flex flex-col pt-4`;
+const Container = tw.div`flex flex-row flex-wrap w-11/12 mx-auto`;
 
 const PillListComponent = ({ pillList }) => {
+  const { listStyle } = useSelector(
+    ({ listStyle }) => ({
+      listStyle: listStyle.setStyle,
+    }),
+  );
+
   return (
     <Container>
-      <ToggleButton></ToggleButton>
-      <PillListContainer>
-        {pillList['content']?.map(({ id, name, ingredients }) => (
-          <PillCard key={id} name={name} ingredient={ingredients} />))}
-      </PillListContainer>
+      {pillList['content']?.map(({ id, name, ingredients }) => (
+        listStyle === 'list' ? <PillListCard key={id} name={name} ingredient={ingredients} /> :
+          <PillBlockCard key={id} name={name} ingredient={ingredients}></PillBlockCard>))}
     </Container>);
 };
 

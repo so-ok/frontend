@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import Responsive from '../components/common/Responsive';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
-import AuthHeader, { StyledWrapper } from '../components/auth/AuthHeader';
-import PageHeader from '../components/common/PageHeader';
-import tw from 'tailwind-styled-components';
+import AuthHeader from '../components/auth/AuthHeader';
 import back from '../assets/Images/back_arrow.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -39,33 +37,31 @@ const RegisterPage = () => {
     setPwdCheck(e.target.value);
   };
 
-  return (
-    <Responsive>
-      <AuthHeader>
-        <button
-          className="grid grid-cols-6 gap-4 place-items-start"
-          onClick={() => navigate(-1)}
-        >
-          <img src={back} alt="back_arrow" className="w-5 h-5"></img>
-        </button>
-      </AuthHeader>
-      <Input type="text" label="Name" value={name} handleValue={handleEmail} />
-      <Input
-        type="text"
-        label="Email"
-        value={email}
-        handleValue={handleEmail}
-      />
-      <Input type="text" label="Password" value={pwd} handleValue={handlePwd} />
-      <Input
-        type="password"
-        label="Password Check"
-        value={pwdCheck}
-        handleValue={handlePwdCheck}
-      />
-      <Button to="/">회원가입</Button>
-    </Responsive>
-  );
+  return (<Responsive>
+    <AuthHeader>
+      <button
+        className='grid grid-cols-6 gap-4 place-items-start'
+        onClick={() => navigate(-1)}
+      >
+        <img src={back} alt='back_arrow' className='w-5 h-5'></img>
+      </button>
+    </AuthHeader>
+    <Input type='text' label='Name' value={name} handleValue={handleEmail} />
+    <Input
+      type='text'
+      label='Email'
+      value={email}
+      handleValue={handleEmail}
+    />
+    <Input type='text' label='Password' value={pwd} handleValue={handlePwd} />
+    <Input
+      type='password'
+      label='Password Check'
+      value={pwdCheck}
+      handleValue={handlePwdCheck}
+    />
+    <Button to='/'>회원가입</Button>
+  </Responsive>);
 };
 
 export default RegisterPage;
