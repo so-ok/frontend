@@ -1,8 +1,9 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
 import Icon from '../../assets/Images/Category/vitamins.png';
+import { Link } from 'react-router-dom';
 
-const PillBlockCardContainer = tw.div`gap-2 mx-auto w-5/12 rounded-xl shadow-md p-2 mt-3 bg-white`;
+const PillBlockCardContainer = tw(Link)`gap-2 mx-auto w-5/12 rounded-xl shadow-md p-2 mt-3 bg-white`;
 
 const PillImgContainer = tw.div`mx-auto rounded-xl bg-stone-100`;
 
@@ -19,7 +20,7 @@ const Ingredient = tw.div`text-sm px-2 rose-400 rounded-xl shadow-sm text-white 
 
 const PillBlockCard = ({ id, name, ingredient }) => {
   return (
-    <PillBlockCardContainer>
+    <PillBlockCardContainer to={`/detail/${id}`}>
       <PillImgContainer>
         <PillImg src={Icon} alt='img'></PillImg>
       </PillImgContainer>
