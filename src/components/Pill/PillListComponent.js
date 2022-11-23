@@ -1,8 +1,8 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
 
-import PillListCard from './common/PillListCard';
-import PillBlockCard from './common/PillBlockCard';
+import PillListCard from './PillListCard';
+import PillBlockCard from './PillBlockCard';
 import { useSelector } from 'react-redux';
 
 const Container = tw.div`flex flex-row flex-wrap w-11/12 mx-auto`;

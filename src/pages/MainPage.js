@@ -5,6 +5,7 @@ import Responsive from '../components/common/Responsive';
 import PillListContainer from '../containers/PillListContainer';
 import CategoryContainer from '../containers/Category/CategoryContainer';
 import ToggleButton from '../components/common/ToggleButton';
+import ChatBot from '../components/common/ChatBot/ChatBot';
 
 const MainPage = () => {
   return (
@@ -13,6 +14,7 @@ const MainPage = () => {
       <CategoryContainer></CategoryContainer>
       <ToggleButton></ToggleButton>
       <PillListContainer></PillListContainer>
+      <ChatBot></ChatBot>
     </Responsive>);
 };
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addListAction } from '../modules/pills';
 
 import Loading from '../components/common/Loading';
-import PillListComponent from '../components/PillListComponent';
+import PillListComponent from '../components/Pill/PillListComponent';
 
 const PillListContainer = () => {
   const dispatch = useDispatch();
