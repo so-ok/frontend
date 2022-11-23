@@ -14,74 +14,50 @@ import menopause from '../../assets/Images/Category/menopause.png';
 export const CATEGORY_LIST = [
   {
     name: '장 건강',
-    description: 'test',
     imageUrl: stomach,
-    pageUrl: '',
   },
   {
     name: '혈행 개선',
-    description: 'test',
     imageUrl: veins,
-    pageUrl: '',
   },
   {
     name: '체지방 감소',
-    description: 'test',
     imageUrl: fat,
-    pageUrl: '',
   },
   {
     name: '눈 건강',
-    description: 'test',
     imageUrl: eye,
-    pageUrl: '',
   },
   {
     name: '피부 건강',
-    description: 'test',
     imageUrl: skin,
-    pageUrl: '',
   },
   {
     name: '뼈 건강',
-    description: 'test',
     imageUrl: bone,
-    pageUrl: '',
   },
   {
-    name: '관절 건강',
-    description: 'test',
+    name: '관절/연골 건강',
     imageUrl: joint,
-    pageUrl: '',
   },
   {
     name: '간 건강',
-    description: 'test',
     imageUrl: liver,
-    pageUrl: '',
   },
   {
     name: '항산화',
-    description: 'test',
     imageUrl: vitamin,
-    pageUrl: '',
   },
   {
     name: '전립선 건강',
-    description: 'test',
     imageUrl: good,
-    pageUrl: '',
   },
   {
     name: '갱년기 건강',
-    description: 'test',
     imageUrl: menopause,
-    pageUrl: '',
   },
   {
     name: '구강 건강',
-    description: 'test',
     imageUrl: mouth,
-    pageUrl: '',
   },
 ];
