@@ -7,7 +7,7 @@ import config from './config';
 import ActionProvider from './ActionProvider';
 import './Style.css';
 
-const Container = tw.div``;
+const Container = tw.div`inline-block`;
 
 const ChatBot = () => {
   const [showBot, setBot] = useState(true);
