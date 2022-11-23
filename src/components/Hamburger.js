@@ -10,7 +10,7 @@ const HamburgerButton = tw.img`h-8 w-8 cursor-pointer`;
 const Hamburger = () => {
   return (
     <Container>
-      <HamburgerButton src={hamburger} alt="햄버거"></HamburgerButton>
+      <HamburgerButton src={hamburger} alt='햄버거'></HamburgerButton>
     </Container>
   );
 };

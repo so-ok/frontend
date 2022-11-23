@@ -1,5 +1,5 @@
-import React from "react";
-import tw from "tailwind-styled-components";
+import React from 'react';
+import tw from 'tailwind-styled-components';
 
 const Container = tw.div`container mx-auto max-w-screen-sm h-screen`;
 
