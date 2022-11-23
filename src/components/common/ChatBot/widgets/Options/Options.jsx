@@ -1,28 +1,13 @@
 import React from 'react';
 
-function Options(props) {
-  const data = [
-    {
-      text: '네',
-      handler: props.actionProvider.handleAttention,
-      id: 1,
-    },
-    {
-      text: '아니오',
-      handler: props.actionProvider.handleBye,
-      id: 2,
-    },
-  ];
-  const optionsList = data.map((option) => (
-    <button key={option.id} onClick={option.handler}>
-      {option.text}
-    </button>
-  ));
+const Options = (props) => {
+  const getProvider = (name) => props?.actionProvider[name];
   return (
     <div>
-      <p>{optionsList}</p>
+      <button onClick={getProvider('handleAttention')}>네</button>
+      <button onClick={getProvider('handleBye')}>아니오</button>
     </div>
   );
-}
+};
 
 export default Options;
