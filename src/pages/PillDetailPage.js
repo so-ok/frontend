@@ -4,13 +4,16 @@ import PageHeader from '../components/common/PageHeader';
 import cart from '../assets/Images/shopping_cart.png';
 import PillIngredients from '../components/PillIngredients';
 
-const PillDetailPage = () => {
+
+const PillDetailPage = ({ pillDetail }) => {
   return (
     <Responsive>
-      <PageHeader cart={cart}> 상세페이지 </PageHeader>
-      <PillIngredients id={'306'}></PillIngredients>
+      <p> {pillDetail?.name}</p>
+      <PageHeader cart={cart}> 상세페이지 </PageHeader>;
+      <PillIngredients id={pillDetail?.id}></PillIngredients>;
     </Responsive>
-  );
+  )
+    ;
 };
 
 export default PillDetailPage;

@@ -2,8 +2,9 @@ import React from 'react';
 import tw from 'tailwind-styled-components';
 
 import Icon from '../../assets/Images/Category/vitamins.png';
+import { Link } from 'react-router-dom';
 
-const PillCardContainer = tw.div`grid grid-cols-4 gap-6 items-start w-full rounded-xl shadow-md p-3 mt-3 bg-white`;
+const PillCardContainer = tw(Link)`grid grid-cols-4 gap-6 items-start w-full rounded-xl shadow-md p-3 mt-3 bg-white`;
 
 const PillInfo = tw.div`col-span-3 gap-2 flex flex-col justify-center`;
 
@@ -19,9 +20,9 @@ const Ingredient = tw.div`text-sm px-2 rose-400 rounded-xl shadow-sm text-white 
 
 const PillListCard = ({ id, name, ingredient }) => {
   return (
-    <PillCardContainer>
+    <PillCardContainer to={`/detail/${id}`}>
       <PillImgContainer>
-        <PillImg src={Icon} alt="img"></PillImg>
+        <PillImg src={Icon} alt='img'></PillImg>
       </PillImgContainer>
       <PillInfo>
         <PillName>{name}</PillName>

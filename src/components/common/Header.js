@@ -1,12 +1,8 @@
 import React from 'react';
-
-import Hamburger from '../Hamburger';
 import tw from 'tailwind-styled-components';
 import search from '../../assets/Images/search.png';
 
 const HeaderContainer = tw.div`h-32 flex flex-col justify-around`;
-
-const HamburgerContainer = tw.div`flex inset-y-0 pl-5`;
 
 const SearchContainer = tw.div`relative text-gray-600`;
 
@@ -21,9 +17,6 @@ const SearchBar = tw.input`p-3 pl-12 w-11/12 text-md bg-white rounded-2xl focus:
 const Header = () => {
   return (
     <HeaderContainer>
-      <HamburgerContainer>
-        <Hamburger></Hamburger>
-      </HamburgerContainer>
       <SearchContainer>
         <SearchIconContainer>
           <SearchIcon src={search} alt='검색'></SearchIcon>

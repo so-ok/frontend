@@ -17,8 +17,8 @@ const PillListComponent = ({ pillList }) => {
   return (
     <Container>
       {pillList['content']?.map(({ id, name, ingredients }) => (
-        listStyle === 'list' ? <PillListCard key={id} name={name} ingredient={ingredients} /> :
-          <PillBlockCard key={id} name={name} ingredient={ingredients}></PillBlockCard>))}
+        listStyle === 'list' ? <PillListCard key={id} id={id} name={name} ingredient={ingredients} /> :
+          <PillBlockCard key={id} id={id} name={name} ingredient={ingredients}></PillBlockCard>))}
     </Container>);
 };
 
