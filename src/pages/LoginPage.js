@@ -16,7 +16,6 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
 
-  //너. . dispatch를 제대로 이해했니, , , ,?
   const currentLocation = window.location;
   console.log(currentLocation);
 

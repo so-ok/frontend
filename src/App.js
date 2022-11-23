@@ -5,6 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import PillDetailPage from './pages/PillDetailPage';
 import ProfilePage from './pages/ProfilePage';
 
+
 const router = createBrowserRouter([
   {
     path: '/',

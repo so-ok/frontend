@@ -7,8 +7,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import rootReducer, { rootSaga } from './modules';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
-
 import * as jose from 'jose';
+
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
@@ -16,6 +16,7 @@ const store = configureStore({
   middleware: [sagaMiddleware],
 });
 sagaMiddleware.run(rootSaga);
+
 
 const url = window.location.search;
 const params = new URLSearchParams(url);
