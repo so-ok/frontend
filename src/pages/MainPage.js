@@ -4,7 +4,7 @@ import Header from '../components/common/Header';
 import Responsive from '../components/common/Responsive';
 import PillListContainer from '../containers/Pill/PillListContainer';
 import Category from '../components/Category/Category';
-import ChatBot from '../components/common/ChatBot/ChatBot';
+import ChatBot from '../components/ChatBot/ChatBot';
 import ToggleButtonContainer from '../containers/ToggleButtonContainer';
 
 const MainPage = () => {

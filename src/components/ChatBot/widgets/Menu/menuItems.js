@@ -1,5 +1,5 @@
-import pizzaImg from '../../../../../assets/Images/pizza.jpg';
-import tacosImg from '../../../../../assets/Images/tacos.jpg';
+import pizzaImg from '../../../../assets/Images/pizza.jpg';
+import tacosImg from '../../../../assets/Images/tacos.jpg';
 
 const data = [
   {

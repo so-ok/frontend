@@ -6,7 +6,7 @@ import MessageParser from './MessageParser';
 import config from './config';
 import ActionProvider from './ActionProvider';
 import './Style.css';
-import Button from '../Button';
+import Button from '../common/Button';
 
 const Container = tw.div`fixed bottom-24 right-4 w-11/12`;
 

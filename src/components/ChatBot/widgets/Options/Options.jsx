@@ -1,6 +1,6 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
-import Button from '../../../Button';
+import Button from '../../../common/Button';
 
 const Container = tw.div`flex justify-end flex-row gap-4`;
 
