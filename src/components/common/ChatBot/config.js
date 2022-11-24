@@ -13,7 +13,7 @@ const config = {
   initialMessages: [
     createChatBotMessage('영양제 선택에 도움이 필요하신가요?', {
       withAvatar: true,
-      delay: 2000,
+      delay: 500,
       widget: 'options',
     }),
   ],

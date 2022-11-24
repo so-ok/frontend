@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import "../main.css";
-import data from "./menuItems";
+import React, { useState } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import '../main.css';
+import data from './menuItems';
 
 function Menu({ actionProvider, orderedItems, setState }) {
   const [index, setIndex] = useState(0);
@@ -26,7 +26,7 @@ function Menu({ actionProvider, orderedItems, setState }) {
         id: e.target.id,
         itemName: e.target.value,
         quantity: count,
-        price: count * price
+        price: count * price,
       };
 
       const newItems = [...items, newItem];
@@ -64,31 +64,31 @@ function Menu({ actionProvider, orderedItems, setState }) {
     setSubmit(!submit);
     setState((state) => ({
       ...state,
-      orderedItems: [...items]
+      orderedItems: [...items],
     }));
     actionProvider.handleViewOrder();
   };
 
   return (
     <main>
-      <div className="card-deck">
-        <div className="card-wrapper">
-          <div className="card-main" key={id}>
-            <img className="card-img-top" src={img} alt="food" />
+      <div className='card-deck'>
+        <div className='card-wrapper'>
+          <div className='card-main' key={id}>
+            <img className='card-img-top' src={img} alt='food' />
 
-            <div className="card-block">
-              <h4 className="card-title">{text}</h4>
+            <div className='card-block'>
+              <h4 className='card-title'>{text}</h4>
               <p>{desc}</p>
             </div>
             <div>
               {menu[index].added === false && (
                 <div>
-                  <div class="counter-deck">
-                    <button className="counter" onClick={decrease}>
+                  <div className='counter-deck'>
+                    <button className='counter' onClick={decrease}>
                       -
                     </button>
-                    <p className="counter">{count}</p>
-                    <button className="counter" onClick={increase}>
+                    <p className='counter'>{count}</p>
+                    <button className='counter' onClick={increase}>
                       +
                     </button>
                     <p>가격: {price * count}원</p>
@@ -103,7 +103,7 @@ function Menu({ actionProvider, orderedItems, setState }) {
             </div>
           </div>
 
-          <div className="card-footer">
+          <div className='card-footer'>
             {menu[index].added === false && (
               <button onClick={addNewItem} id={id} value={text}>
                 장바구니 추가
@@ -114,10 +114,10 @@ function Menu({ actionProvider, orderedItems, setState }) {
             )}
           </div>
 
-          <button className="prev-btn" onClick={() => prevItem()}>
+          <button className='prev-btn' onClick={() => prevItem()}>
             <FaChevronLeft />
           </button>
-          <button className="next-btn" onClick={() => nextItem()}>
+          <button className='next-btn' onClick={() => nextItem()}>
             <FaChevronRight />
           </button>
         </div>
@@ -131,4 +131,5 @@ function Menu({ actionProvider, orderedItems, setState }) {
     </main>
   );
 }
+
 export default Menu;

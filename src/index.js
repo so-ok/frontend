@@ -8,6 +8,7 @@ import rootReducer, { rootSaga } from './modules';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import * as jose from 'jose';
+import { setListStyle } from './modules/listStyle';
 
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,6 +16,15 @@ const store = configureStore({
   reducer: rootReducer,
   middleware: [sagaMiddleware],
 });
+
+const loadListStyle = () => {
+  const listStyle = localStorage.getItem('listStyle');
+  if (!listStyle) return;
+  store.dispatch(setListStyle(JSON.parse(listStyle)));
+};
+
+loadListStyle();
+
 sagaMiddleware.run(rootSaga);
 
 

@@ -6,11 +6,14 @@ import MessageParser from './MessageParser';
 import config from './config';
 import ActionProvider from './ActionProvider';
 import './Style.css';
+import Button from '../Button';
 
-const Container = tw.div`inline-block`;
+const Container = tw.div`fixed bottom-24 right-4 w-11/12`;
+
+const ChatBotButton = tw.button``;
 
 const ChatBot = () => {
-  const [showBot, setBot] = useState(true);
+  const [showBot, setBot] = useState(false);
 
   const handleBot = () => {
     const botState = !showBot;
@@ -26,8 +29,8 @@ const ChatBot = () => {
           messageParser={MessageParser}
         />
       )}
-      <button className='app-chatbot-button' onClick={handleBot}>
-      </button>
+      <Button className={'w-16 h-16 bg-rose-400 shadow-xl fixed bottom-6 right-4 rounded-full'}
+              onClick={handleBot}></Button>
     </Container>
   );
 };

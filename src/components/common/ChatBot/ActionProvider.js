@@ -87,18 +87,6 @@ class ActionProvider {
     this.setChatbotMessage(message);
   };
 
-  handleUnknown = () => {
-    const message = this.createChatBotMessage(
-      'Tell me how can I help you? Why dont you try having a look at our menu!',
-      {
-        widget: 'menu',
-        delay: 500,
-        withAvatar: true,
-      },
-    );
-    this.setChatbotMessage(message);
-  };
-
   setChatbotMessage = (messages) => {
     if (Array.isArray(messages)) {
       this.setState((state) => ({
