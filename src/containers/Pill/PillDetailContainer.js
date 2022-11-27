@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import PillDetailPage from '../pages/PillDetailPage';
-import Loading from '../components/common/Loading';
-import { getPillDetail } from '../modules/pillDetail';
+import PillDetailPage from '../../pages/PillDetailPage';
+import Loading from '../../components/common/Loading';
+import { getPillDetail } from '../../modules/pillDetail';
 
 
 const PillDetailContainer = () => {

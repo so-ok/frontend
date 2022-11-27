@@ -12,8 +12,7 @@ const PillDetailPage = ({ pillDetail }) => {
       <PageHeader cart={cart}> 상세페이지 </PageHeader>;
       <PillIngredients id={pillDetail?.id}></PillIngredients>;
     </Responsive>
-  )
-    ;
+  );
 };
 
 export default PillDetailPage;

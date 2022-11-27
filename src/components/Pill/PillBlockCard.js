@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 
 const PillBlockCardContainer = tw(Link)`gap-2 mx-auto w-5/12 rounded-xl shadow-md p-2 mt-3 bg-white`;
 
-const PillImgContainer = tw.div`mx-auto rounded-xl bg-stone-100`;
+const PillImgContainer = tw.div`mx-auto rounded-xl bg-neutral-100`;
 
 const PillInfo = tw.div`gap-2 flex flex-col justify-center`;
 
-const PillImg = tw.img`p-3 w-32 h-32 sm:w-16 sm:h-16`;
+const PillImg = tw.img`p-3 w-32 h-32 mx-auto`;
 
-const PillName = tw.p`pl-2 font-bold`;
+const PillName = tw.p`mx-1 mt-1 font-bold`;
 
-const IngredientContainer = tw.div`flex flex-row flex-wrap gap-1 ml-2`;
+const IngredientContainer = tw.div`flex flex-row flex-wrap gap-1 mx-1 my-1`;
 
 const Ingredient = tw.div`text-sm px-2 rose-400 rounded-xl shadow-sm text-white bg-rose-400`;
 

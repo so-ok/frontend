@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { CATEGORY_LIST } from './CategoryList';
+import { CATEGORY_LIST } from '../../lib/data/CategoryList';
 
-import CategoryCard from '../../components/common/CategoryCard';
+import CategoryCard from './CategoryCard';
 import tw from 'tailwind-styled-components';
 
 const Container = tw.div`flex pt-4 justify-center`;
@@ -9,7 +9,7 @@ const Container = tw.div`flex pt-4 justify-center`;
 const CardContainer = tw.div`grid grid-cols-4 w-11/12 gap-2`;
 
 
-const CategoryContainer = () => {
+const Category = () => {
   const [categoryList, setCategoryList] = useState(CATEGORY_LIST);
 
   useEffect(() => {
@@ -23,6 +23,9 @@ const CategoryContainer = () => {
           <CategoryCard
             key={name}
             name={name}
+            cardStyle={'flex-col'}
+            imgSize={'w-7 h-7'}
+            textStyle={'mt-3'}
             imageUrl={imageUrl}
           />
         ))}
@@ -30,4 +33,4 @@ const CategoryContainer = () => {
     </Container>);
 };
 
-export default CategoryContainer;
+export default Category;

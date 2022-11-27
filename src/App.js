@@ -3,7 +3,7 @@ import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
-import PillDetailContainer from './containers/PillDetailContainer';
+import PillDetailContainer from './containers/Pill/PillDetailContainer';
 
 
 const router = createBrowserRouter([
