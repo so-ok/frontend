@@ -1,9 +1,12 @@
 import React from 'react';
-import './BotAvatar.css';
-import botavatar from '../../../../assets/Images/bot.png';
+import tw from 'tailwind-styled-components';
+
+import botAvatar from '../../../../assets/Images/bot.png';
+
+const Bot = tw.img`w-10 h-10 rounded-md shadow-md`;
 
 function BotAvatar() {
-  return <img src={botavatar} className='my-avatar' alt='botavatar' />;
+  return <Bot src={botAvatar} alt='bot avatar' />;
 }
 
 export default BotAvatar;

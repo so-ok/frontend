@@ -1,12 +1,15 @@
-// Config starter code
-import { createChatBotMessage } from 'react-chatbot-kit';
 import React from 'react';
+import tw from 'tailwind-styled-components';
+
+import { createChatBotMessage } from 'react-chatbot-kit';
 import BotAvatar from './widgets/BotAvatar/BotAvatar';
 import UserAvatar from './widgets/UserAvatar/UserAvatar';
 import Menu from './widgets/Menu/Menu.jsx';
-import Attentions from './widgets/Additionals/Attentions';
 import ViewOrder from './widgets/OrderDetails/ViewOrder';
 import Options from './widgets/Options/Options';
+import Attention from './widgets/Additionals/Attention';
+
+const BotHeader = tw.div`flex justify-center items-center bg-rose-400 text-white font-bold rounded-t-xl shadow-md h-10`;
 
 const config = {
   botName: 'sook_Kiyoung',
@@ -28,24 +31,7 @@ const config = {
   },
   customComponents: {
     header: () => (
-      <div
-        style={{
-          backgroundColor: '#D1F5F9',
-          padding: '5px',
-          borderTopLeftRadius: '5px',
-          borderTopRightRadius: '5px',
-          display: 'center',
-          fontSize: '0.85rem',
-          paddingTop: '12.5px',
-          paddingBottom: '12.5px',
-          paddingRight: '12.5px',
-          paddingLeft: '12.5px',
-          fontWeight: '700',
-          alignItems: 'center',
-        }}
-      >
-        영양쏘옥_기영이와 함께하는
-      </div>
+      <BotHeader>영양쏘옥</BotHeader>
     ),
     botAvatar: (props) => <BotAvatar {...props} />,
     userAvatar: (props) => <UserAvatar {...props} />,
@@ -67,7 +53,7 @@ const config = {
     },
     {
       widgetName: 'attentions',
-      widgetFunc: (props) => <Attentions {...props} />,
+      widgetFunc: (props) => <Attention {...props} />,
       mapStateToProps: ['selectedAttentions'],
     },
     {

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import '../main.css';
 import data from './datas/AttentionList';
 
-function Attentions({ actionProvider, selectedAttentions, setState }) {
+const Attentions = ({ actionProvider, selectedAttentions, setState }) => {
   const [submit, setSubmit] = useState(false);
   const [top, setAttention] = useState('');
   const [enable, setEnable] = useState(false);
@@ -50,6 +49,6 @@ function Attentions({ actionProvider, selectedAttentions, setState }) {
       </div>
     </main>
   );
-}
+};
 
 export default Attentions;

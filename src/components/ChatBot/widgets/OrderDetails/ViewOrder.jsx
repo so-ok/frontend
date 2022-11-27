@@ -1,6 +1,5 @@
 // eslint-disable-next-line
 import React, { useState } from 'react';
-import '../main.css';
 
 function ViewOrder({ actionProvider, orderedItems }) {
   const [submit, setSubmit] = useState(false);

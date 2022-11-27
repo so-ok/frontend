@@ -7,17 +7,15 @@ import config from './config';
 import ActionProvider from './ActionProvider';
 import './Style.css';
 import Button from '../common/Button';
+import { Pill } from '../common/SvgImport';
 
-const Container = tw.div`fixed bottom-24 right-4 w-11/12`;
-
-const ChatBotButton = tw.button``;
+const Container = tw.div`fixed bottom-24 right-4 w-80`;
 
 const ChatBot = () => {
   const [showBot, setBot] = useState(false);
 
   const handleBot = () => {
-    const botState = !showBot;
-    setBot(botState);
+    setBot(!showBot);
   };
 
   return (
@@ -29,8 +27,10 @@ const ChatBot = () => {
           messageParser={MessageParser}
         />
       )}
-      <Button className={'w-16 h-16 bg-rose-400 shadow-xl fixed bottom-6 right-4 rounded-full'}
-              onClick={handleBot}></Button>
+      <Button className={'w-16 h-16 bg-rose-400 shadow-md fixed bottom-6 right-4 rounded-full'}
+              onClick={handleBot}>
+        <Pill color={'white'}></Pill>
+      </Button>
     </Container>
   );
 };

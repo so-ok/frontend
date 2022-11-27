@@ -23,6 +23,9 @@ const Category = () => {
           <CategoryCard
             key={name}
             name={name}
+            cardStyle={'flex-col'}
+            imgSize={'w-7 h-7'}
+            textStyle={'mt-3'}
             imageUrl={imageUrl}
           />
         ))}

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import "../main.css";
+import React, { useState } from 'react';
+import 'react-phone-number-input/style.css';
+import PhoneInput from 'react-phone-number-input';
 
 function Phone({ actionProvider, userPhone, setState }) {
   const [submit, setSubmit] = useState(false);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   const handleSubmit = () => {
     if ([...value].length !== 13) actionProvider.handlePhoneError();
@@ -13,7 +12,7 @@ function Phone({ actionProvider, userPhone, setState }) {
       setSubmit(!submit);
       setState((state) => ({
         ...state,
-        userPhone: value
+        userPhone: value,
       }));
 
       actionProvider.handleViewOrder();
@@ -23,8 +22,8 @@ function Phone({ actionProvider, userPhone, setState }) {
   return (
     <main>
       <PhoneInput
-        className="input"
-        placeholder="Enter phone number"
+        className='input'
+        placeholder='Enter phone number'
         value={value}
         onChange={setValue}
       />
@@ -33,4 +32,5 @@ function Phone({ actionProvider, userPhone, setState }) {
     </main>
   );
 }
+
 export default Phone;

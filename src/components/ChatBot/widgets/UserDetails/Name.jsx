@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "../main.css";
+import React, { useState } from 'react';
+
 function Name({ actionProvider, userName, setState }) {
   const [submit, setSubmit] = useState(false);
   const [enable, setEnable] = useState(false);
@@ -16,7 +16,7 @@ function Name({ actionProvider, userName, setState }) {
       setSubmit(true);
       setState((state) => ({
         ...state,
-        userName: value
+        userName: value,
       }));
 
       actionProvider.handlePhone();
@@ -25,16 +25,15 @@ function Name({ actionProvider, userName, setState }) {
 
   return (
     <main>
-      <label for="name">Name (4 to 20characters):</label>
-
+      <label for='name'>Name (4 to 20characters):</label>
       <input
-        type="text"
-        className="input"
-        name="name"
+        type='text'
+        className='input'
+        name='name'
         value={value}
         required
-        minlength="4"
-        maxlength="20"
+        minlength='4'
+        maxlength='20'
         onChange={handleChange}
       ></input>
       {!submit && (
@@ -46,4 +45,5 @@ function Name({ actionProvider, userName, setState }) {
     </main>
   );
 }
+
 export default Name;

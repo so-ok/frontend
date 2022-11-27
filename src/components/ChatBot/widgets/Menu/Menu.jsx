@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import '../main.css';
 import data from './menuItems';
 
 function Menu({ actionProvider, orderedItems, setState }) {
