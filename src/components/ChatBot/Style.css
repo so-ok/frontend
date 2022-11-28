@@ -1,7 +1,7 @@
 /*Chat Bot Container*/
 .react-chatbot-kit-chat-container {
     width: 100%;
-    height: 35rem;
+    height: calc(100vh - 8rem);
 }
 
 .react-chatbot-kit-chat-inner-container {
@@ -11,7 +11,8 @@
 }
 
 .react-chatbot-kit-chat-message-container {
-    height: calc(35rem - 2.5rem);
+    /*height: calc(35rem - 2.5rem);*/
+    /*height: 100vh;*/
 }
 
 /*Chat Bot Message*/
