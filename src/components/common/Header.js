@@ -1,30 +1,15 @@
 import React from 'react';
 import tw from 'tailwind-styled-components';
-import search from '../../assets/Images/search.png';
+import SearchBar from './SearchBar';
+import NavBar from './NavBar';
 
 const HeaderContainer = tw.div`h-32 flex flex-col justify-around`;
-
-const SearchContainer = tw.div`relative text-gray-600`;
-
-const SearchIconContainer = tw.div`flex absolute inset-y-0 items-center pl-9 pointer-events-none`;
-
-const SearchIcon = tw.img`w-5 h-5`;
-
-const SearchBarContainer = tw.div`flex justify-center`;
-
-const SearchBar = tw.input`p-3 pl-12 w-11/12 text-md bg-white rounded-2xl focus:outline-rose-400`;
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <SearchContainer>
-        <SearchIconContainer>
-          <SearchIcon src={search} alt='검색'></SearchIcon>
-        </SearchIconContainer>
-        <SearchBarContainer>
-          <SearchBar type='search' name='search'></SearchBar>
-        </SearchBarContainer>
-      </SearchContainer>
+      <NavBar></NavBar>
+      <SearchBar></SearchBar>
     </HeaderContainer>
   );
 };
