@@ -12,11 +12,12 @@ const PillTitle = tw.div`text-xl font-bold ml-3 p-2`;
 const IngredientContainer = tw.div`flex flex-col gap-1 ml-2`;
 const IngredientBox = tw.div`w-11/12 mx-auto bg-slate-100 bg-white shadow-md rounded-lg px-3 py-2 mb-4`;
 const IngredientTitle = tw.div`text-gray-700 text-lg font-semibold py-2 ml-4`;
-const IngredientListBox = tw.div`flex justify-between items-center text-gray-700 hover:text-rose-400 hover:bg-rose-100 rounded-md px-2 py-2 my-2`;
-const IngredientName = tw.div`rounded-full bg-rose-400 text-md shadow-md text-white font-medium px-4 py-1`;
-const IngredientAmountUnit = tw.div`text-md font-bold text-gray-500 tracking-wide`;
+const IngredientListBox = tw.div`flex flex-wrap justify-between items-center text-gray-700 hover:text-rose-400 hover:bg-rose-100 rounded-md px-2 py-2 my-2`;
+const IngredientName = tw.div`rounded-full bg-rose-400 text-md shadow-md text-white font-medium px-4 py-1 mb-1`;
+const IngredientAmountUnit = tw.div`text-md font-bold text-gray-500 tracking-wide mb-1`;
 
 const PillDetailPage = ({ pillDetail }) => {
+  console.log(pillDetail);
   return (
     <Responsive>
       <PageHeader cart={cart}> 상세페이지 </PageHeader>
@@ -35,13 +36,11 @@ const PillDetailPage = ({ pillDetail }) => {
                   {Math.round(amount)}
                   {unit}
                 </IngredientAmountUnit>
+
+                <ProgressBar value={amount} maxValue={100}></ProgressBar>
               </IngredientListBox>
             ))}
         </IngredientContainer>
-      </IngredientBox>
-
-      <IngredientBox>
-        <ProgressBar value={10} maxValue={100}></ProgressBar>
       </IngredientBox>
     </Responsive>
   );
