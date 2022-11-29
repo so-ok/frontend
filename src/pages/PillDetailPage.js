@@ -41,7 +41,7 @@ const PillDetailPage = ({ pillDetail }) => {
       </IngredientBox>
 
       <IngredientBox>
-        <ProgressBar value="50" maxValue="100"></ProgressBar>
+        <ProgressBar value={10} maxValue={100}></ProgressBar>
       </IngredientBox>
     </Responsive>
   );

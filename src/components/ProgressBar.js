@@ -1,32 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
 
-const Container = tw.div`relative`;
-
 const ParentBar = tw.div`
-bg-rose-100 dark:bg-slate-700 rounded-full overflow-hidden`;
+bg-rose-100 rounded-full overflow-hidden`;
 
 const ChildBar = tw.div`
-bg-rose-500 dark:bg-rose-400`;
+bg-rose-500 flex items-center justify-center h-10`;
 
-const ProgressBar = (value, maxValue) => {
+const ProgressBar = ({ value, maxValue }) => {
+  const [progress, setProgress] = useState(0);
+
   const getRate = (value, maxValue) => {
-    return value / maxValue;
-  };
+    const result = value / maxValue * 100;
+    if (isNaN(result)) {
+      return 0;
+    }
+    return result;
+  }
+
+  useEffect(() => {
+    setProgress(getRate(value, maxValue));
+  }, [value, maxValue]);
 
   return (
-    <Container>
-      <ParentBar>
-        <ChildBar>
-          <div
-            style={{ width: `${getRate(value, maxValue)}%` }}
-            className="bg-primary absolute top-0 left-0 flex h-full items-center justify-center rounded-2xl text-xs font-semibold text-white"
-          >
-            75%
-          </div>
-        </ChildBar>
-      </ParentBar>
-    </Container>
+    <ParentBar>
+      <ChildBar style={{ width: `${progress}%` }}>
+        {progress}
+      </ChildBar>
+    </ParentBar>
   );
 };
 
