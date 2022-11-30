@@ -5,6 +5,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer, { rootSaga } from './modules';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import * as jose from 'jose';
@@ -24,6 +26,7 @@ const loadListStyle = () => {
 };
 
 loadListStyle();
+serviceWorkerRegistration.register();
 
 sagaMiddleware.run(rootSaga);
 
@@ -47,6 +50,13 @@ root.render(
     <App />
   </Provider>,
 );
+
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.unregister();
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
