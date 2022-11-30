@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../components/common/Header';
+import Header from '../components/common/Header/Header';
 import Responsive from '../components/common/Responsive';
 import PillListContainer from '../containers/Pill/PillListContainer';
 import Category from '../components/Category/Category';
