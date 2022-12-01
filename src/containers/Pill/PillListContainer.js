@@ -13,8 +13,7 @@ const PillListContainer = () => {
       pillListError: pillList.pillListError,
       loading: loading['pills/GET_LIST'],
       category: category.category,
-    }),
-  );
+    }));
 
   useEffect(() => {
     dispatch(addListAction(category));

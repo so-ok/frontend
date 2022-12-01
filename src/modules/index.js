@@ -5,6 +5,7 @@ import pills, { pillListSaga } from './pills';
 import loading from './loading';
 import category from './category';
 import listStyle from './listStyle';
+
 import pillDetail, { pillDetailSaga } from './pillDetail';
 
 const rootReducer = combineReducers({

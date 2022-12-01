@@ -13,8 +13,8 @@ const PillDetailContainer = () => {
       loading: loading['pills/GET_PILL'],
       pillDetail: pillDetail.pillDetail,
       pillListError: pillDetail.pillListError,
-    }),
-  );
+    }));
+  
   const params = useParams();
 
   useEffect(() => {

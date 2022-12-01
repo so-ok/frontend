@@ -8,14 +8,7 @@ hover:-translate-y-1 hover:scale-110 duration-250 hover:bg-white hover:ring-1 ho
 
 const CategoryCardP = tw.p`font-bold text-xs md:text-sm xl:text-base`;
 
-const CategoryCard = ({
-  cardStyle,
-  imgSize,
-  textStyle,
-  name,
-  description,
-  imageUrl,
-}) => {
+const CategoryCard = ({ cardStyle, imgSize, textStyle, name, description, imageUrl }) => {
   const dispatch = useDispatch();
 
   const categorySelect = (event) => {

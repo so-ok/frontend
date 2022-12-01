@@ -25,15 +25,15 @@ function Name({ actionProvider, userName, setState }) {
 
   return (
     <main>
-      <label for='name'>Name (4 to 20characters):</label>
+      <label htmlFor="name">Name (4 to 20characters):</label>
       <input
-        type='text'
-        className='input'
-        name='name'
+        type="text"
+        className="input"
+        name="name"
         value={value}
         required
-        minlength='4'
-        maxlength='20'
+        minlength="4"
+        maxlength="20"
         onChange={handleChange}
       ></input>
       {!submit && (
