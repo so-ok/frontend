@@ -10,11 +10,11 @@ import ToggleButtonContainer from '../containers/ToggleButtonContainer';
 const MainPage = () => {
   return (
     <Responsive>
-      <Header></Header>
-      <Category></Category>
-      <ToggleButtonContainer></ToggleButtonContainer>
-      <PillListContainer></PillListContainer>
-      <ChatBot></ChatBot>
+      <Header />
+      <Category />
+      <ToggleButtonContainer />
+      <PillListContainer />
+      <ChatBot />
     </Responsive>);
 };
 
