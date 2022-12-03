@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import PillDetailPage from '../../pages/PillDetailPage';
-import Loading from '../../components/common/Loading';
 import { getPillDetail } from '../../modules/pillDetail';
+import Loading from '../../components/common/Loading';
+import PillDetail from '../../components/Pill/PillDetail';
 
 
 const PillDetailContainer = () => {
@@ -14,22 +14,20 @@ const PillDetailContainer = () => {
       pillDetail: pillDetail.pillDetail,
       pillListError: pillDetail.pillListError,
     }));
-  
-  const params = useParams();
 
-  useEffect(() => {
-    dispatch(getPillDetail(params.id));
-  }, []);
+  const params = useParams();
 
   useEffect(() => {
     if (pillListError) {
       console.error(pillListError);
+    } else {
+      dispatch(getPillDetail(params.id));
     }
-  }, [pillListError]);
+  }, [dispatch, params.id, pillListError]);
 
   return (
     !loading ? (
-      <PillDetailPage pillDetail={pillDetail}></PillDetailPage>
+      <PillDetail pillDetail={pillDetail}></PillDetail>
     ) : (
       <Loading></Loading>
     )
