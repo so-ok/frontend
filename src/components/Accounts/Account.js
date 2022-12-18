@@ -17,21 +17,26 @@ const UserAuth = tw.div`flex justify-center items-center border-b-2 border-b-ros
 const Account = () => {
   const [authMethod, setMethod] = useState('login');
 
-  const handleOnClick = (e) => {
+  const handleOnClick = e => {
     setMethod(e.target.id);
   };
 
   return (
     <Container>
       <Header>
-        <StyledImage src={ky} alt='so-ok logo'></StyledImage>
+        <StyledImage src={ky} alt="so-ok logo"></StyledImage>
         <StyledTail>
-          <UserAuth id='login' onClick={handleOnClick}>로그인</UserAuth>
-          <UserAuth id='register' onClick={handleOnClick}>회원가입</UserAuth>
+          <UserAuth id="login" onClick={handleOnClick}>
+            로그인
+          </UserAuth>
+          <UserAuth id="register" onClick={handleOnClick}>
+            회원가입
+          </UserAuth>
         </StyledTail>
       </Header>
       {authMethod === 'login' ? <Login /> : <Register />}
-    </Container>);
+    </Container>
+  );
 };
 
 export default Account;
