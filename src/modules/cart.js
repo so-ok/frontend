@@ -7,9 +7,9 @@ export const addCART = createAction(ADD_CART, payload => payload);
 export const deleteCART = createAction(DELETE_CART, payload => payload);
 
 const getLocalStorageCart = () => {
-  var item = JSON.parse(localStorage.getItem('cart'));
+  const item = localStorage.getItem('cart');
   if (item) {
-    return item;
+    return JSON.parse(item);
   }
   return [];
 };
