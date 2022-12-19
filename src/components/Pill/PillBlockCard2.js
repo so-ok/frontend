@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
 
-const PillBlockCardContainer = tw(Link)`mx-auto w-72 rounded-xl shadow-md p-2 mt-3 bg-white`;
+const PillBlockCardContainer = tw(Link)`flex w-72 flex-col flex-shrink-0 rounded-xl shadow-md p-2 mt-3 bg-white`;
 
 const PillInfo = tw.div`gap-2 flex flex-col justify-center`;
 
@@ -14,7 +14,7 @@ const IngredientContainer = tw.div`flex flex-row flex-wrap gap-1 mx-1 my-1`;
 
 const Ingredient = tw.div`text-sm px-2 rose-400 rounded-xl shadow-sm text-white bg-rose-400`;
 
-const PillBlockCard = ({ id, name, ingredient, image }) => {
+const PillBlockCard2 = ({ id, name, ingredient, image }) => {
   return (
     <PillBlockCardContainer to={`/detail/${id}`}>
       <PillImg src={image} alt="img"></PillImg>
@@ -30,4 +30,4 @@ const PillBlockCard = ({ id, name, ingredient, image }) => {
   );
 };
 
-export default PillBlockCard;
+export default PillBlockCard2;
