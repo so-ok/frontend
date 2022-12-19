@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
 
+import cart from './cart';
 import category from './category';
 import listStyle from './listStyle';
 import loading from './loading';
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   listStyle,
   pillDetail,
   pillIngredient,
+  cart,
 });
 
 export function* rootSaga() {

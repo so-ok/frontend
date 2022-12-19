@@ -1,10 +1,8 @@
-import React from 'react';
-
+import Category from '../components/Category/Category';
+import ChatBot from '../components/ChatBot/ChatBot';
 import Header from '../components/ChatBot/Header/Header';
 import Responsive from '../components/common/Responsive';
 import PillListContainer from '../containers/Pill/PillListContainer';
-import Category from '../components/Category/Category';
-import ChatBot from '../components/ChatBot/ChatBot';
 import ToggleButtonContainer from '../containers/ToggleButtonContainer';
 
 const MainPage = () => {
@@ -15,7 +13,8 @@ const MainPage = () => {
       <ToggleButtonContainer />
       <PillListContainer />
       <ChatBot />
-    </Responsive>);
+    </Responsive>
+  );
 };
 
 export default MainPage;

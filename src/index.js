@@ -17,13 +17,18 @@ const store = configureStore({
   middleware: [sagaMiddleware],
 });
 
-const loadListStyle = () => {
+const loadLocalStorage = () => {
   const listStyle = localStorage.getItem('listStyle');
+  const cart = localStorage.getItem('cart');
+  if (!cart) {
+    localStorage.setItem('cart', []);
+  }
+
   if (!listStyle) return;
   store.dispatch(setListStyle(JSON.parse(listStyle)));
 };
 
-loadListStyle();
+loadLocalStorage();
 serviceWorkerRegistration.register();
 
 sagaMiddleware.run(rootSaga);

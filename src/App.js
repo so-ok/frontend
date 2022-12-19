@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import PillDetailContainer from './containers/Pill/PillDetailContainer';
 import AccountPage from './pages/AccountPage';
+import CartPage from './pages/CartPage';
 import MainPage from './pages/MainPage';
 import ProfilePage from './pages/ProfilePage';
 
@@ -27,10 +28,14 @@ const router = createBrowserRouter([
     path: '/profile',
     element: <ProfilePage />,
   },
+  {
+    path: '/cart',
+    element: <CartPage />,
+  },
 ]);
 
 function App() {
-  return <RouterProvider router={router}></RouterProvider>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
