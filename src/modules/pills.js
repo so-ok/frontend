@@ -1,12 +1,11 @@
 import { createAction, handleActions } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
-import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
 import * as articleAPI from '../lib/api/articles';
+import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
 
-const [GET_LIST, GET_LIST_SUCCESS, GET_LIST_FAILURE] =
-  createRequestActionTypes('pills/GET_LIST');
+const [GET_LIST, GET_LIST_SUCCESS, GET_LIST_FAILURE] = createRequestActionTypes('pills/GET_LIST');
 
-export const addListAction = createAction(GET_LIST, (category) => ({ category }));
+export const addListAction = createAction(GET_LIST, category => category);
 
 const getListSaga = createRequestSaga(GET_LIST, articleAPI.requestPillList);
 
