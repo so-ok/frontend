@@ -6,12 +6,26 @@ const DELETE_CART = 'cart/DELETE_CART';
 export const addCART = createAction(ADD_CART, payload => payload);
 export const deleteCART = createAction(DELETE_CART, payload => payload);
 
+const localStorageKey = 'cart';
+
 const getLocalStorageCart = () => {
-  const item = localStorage.getItem('cart');
+  const item = localStorage.getItem(localStorageKey);
   if (item) {
     return JSON.parse(item);
   }
   return [];
+};
+
+const addToLocalStorageCart = (previous, id) => {
+  const joined = [...previous, id];
+  localStorage.setItem(localStorageKey, JSON.stringify(joined));
+  return joined;
+};
+
+const deleteFromLocalStorageCart = (previous, id) => {
+  const removed = previous.filter(foundId => foundId !== id);
+  localStorage.setItem(localStorageKey, JSON.stringify(removed));
+  return removed;
 };
 
 const initialState = {
@@ -21,21 +35,13 @@ const initialState = {
 
 const cart = handleActions(
   {
-    [ADD_CART]: (state, { payload: id }) => {
-      const addedCart = [...state.cart, id];
-      localStorage.setItem('cart', JSON.stringify(addedCart));
-      return {
-        cart: addedCart,
-      };
-    },
+    [ADD_CART]: (state, { payload: id }) => ({
+      cart: addToLocalStorageCart(state.cart, id)
+    }),
 
-    [DELETE_CART]: (state, { payload: id }) => {
-      const deleteCart = [...state.cart.filter(pre => pre !== id)];
-      localStorage.setItem('cart', JSON.stringify(deleteCart));
-      return {
-        cart: deleteCart,
-      };
-    },
+    [DELETE_CART]: (state, { payload: id }) => ({
+      cart: deleteFromLocalStorageCart(state.cart, id),
+    }),
   },
   initialState,
 );
