@@ -10,8 +10,6 @@ const PillTitle = tw.div`flex flex-col items-center rounded-xl gap-6 justify-cen
 
 const PillImg = tw.img`w-68 h-68 rounded-2xl`;
 
-const BackButton = tw.div`w-11/12 mt-3`;
-
 const IngredientContainer = tw.div`flex flex-col gap-1 ml-2`;
 
 const IngredientBox = tw.div`w-11/12 mx-auto bg-slate-100 bg-white shadow-md rounded-lg px-3 py-2 mb-4`;
@@ -21,6 +19,8 @@ const IngredientTitle = tw.div`text-gray-700 text-lg font-semibold py-2 ml-4`;
 const IngredientListBox = tw.div`flex flex-wrap justify-between items-center text-gray-700 rounded-md px-2 py-2 my-2`;
 
 const IngredientName = tw.div`rounded-full bg-rose-400 text-md shadow-md text-white font-medium px-4 py-1 mb-1`;
+
+const BackButton = tw.div`w-11/12 mt-3`;
 
 const IngredientAmountUnit = tw.div`text-md font-bold text-gray-500 tracking-wide mb-1`;
 
