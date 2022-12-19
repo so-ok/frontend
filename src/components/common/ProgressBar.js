@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
-import Responsive from './Responsive';
 
-const ParentBar = tw.div`
-bg-rose-200 rounded-full overflow-hidden`;
+const ParentBar = tw.div`ml-1 bg-rose-200 rounded-full overflow-hidden`;
 
 const ChildBar = tw.div`
-bg-rose-500 flex items-center rounded-full h-5 text-white transition-transform ease-in-out delay-150`;
+bg-rose-500 flex items-center rounded-full h-5 text-white px-1 min-w-fit`;
 
 const Amount = tw.p`mx-auto`;
 
@@ -26,13 +24,11 @@ const ProgressBar = ({ value, maxValue }) => {
   }, [value, maxValue]);
 
   return (
-    <Responsive>
-      <ParentBar>
-        <ChildBar style={{ width: `${progress}%` }}>
-          <Amount>{progress}</Amount>
-        </ChildBar>
-      </ParentBar>
-    </Responsive>
+    <ParentBar>
+      <ChildBar style={{ width: `${progress}%` }}>
+        <Amount>{progress}%</Amount>
+      </ChildBar>
+    </ParentBar>
   );
 };
 

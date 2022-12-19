@@ -4,4 +4,4 @@ export const requestPillList = ({ category }) => client.post('/api/pill/search',
 
 export const requestPillDetail = ({ id }) => client.get(`/api/pill/${[id]}`);
 
-export const requestPillIngredient = ({ id }) => client.post('/api/ingredients', [id]);
+export const requestCartIngredient = cart => client.post('/api/ingredients', cart);

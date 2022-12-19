@@ -1,29 +1,27 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import Loading from '../../components/common/Loading';
-import PillDetail from '../../components/Pill/PillDetail';
-import { getPillDetail } from '../../modules/pillDetail';
+import Cart from '../components/Cart/Cart';
+import Loading from '../components/common/Loading';
+import { getIngredient } from '../modules/pillIngredient';
 
-const PillDetailContainer = () => {
+const CartPageContainer = () => {
   const dispatch = useDispatch();
-  const { pillDetail, pillListError, loading } = useSelector(({ pillDetail, pillDetailError, loading }) => ({
-    loading: loading['pills/GET_PILL'],
-    pillDetail: pillDetail.pillDetail,
-    pillDetailError: pillDetailError,
+  const { cart, pillIngredient, pillIngredientError, loading } = useSelector(({ cart, pillIngredient, loading }) => ({
+    loading: loading['pills/GET_INGREDIENT'],
+    cart: cart.cart,
+    pillIngredient: pillIngredient.pillIngredient,
+    pillIngredientError: pillIngredient.pillIngredientError,
   }));
 
-  const params = useParams();
-
   useEffect(() => {
-    if (pillListError) {
-      console.error(pillListError);
+    if (pillIngredientError) {
+      console.error(pillIngredientError);
     } else {
-      dispatch(getPillDetail(params.id));
+      dispatch(getIngredient(cart));
     }
-  }, [dispatch, params.id, pillListError]);
+  }, [dispatch, pillIngredientError]);
 
-  return !loading ? <PillDetail pillDetail={pillDetail}></PillDetail> : <Loading></Loading>;
+  return !loading ? <Cart pillIngredient={pillIngredient} /> : <Loading />;
 };
 
-export default PillDetailContainer;
+export default CartPageContainer;

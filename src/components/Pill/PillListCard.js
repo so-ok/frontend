@@ -1,7 +1,6 @@
 import React from 'react';
-import tw from 'tailwind-styled-components';
-
 import { Link } from 'react-router-dom';
+import tw from 'tailwind-styled-components';
 
 const PillCardContainer = tw(Link)`grid grid-cols-4 gap-6 items-start w-full rounded-xl shadow-md p-3 mt-3 bg-white`;
 

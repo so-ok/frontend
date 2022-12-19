@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
 import { addCART, deleteCART } from '../../modules/cart';
-import PageHeader from '../common/PageHeader';
 import Responsive from '../common/Responsive';
-import { Check, Plus } from '../common/SvgImport';
+import { Back, Check, Plus } from '../common/SvgImport';
 
 const PillTitle = tw.div`flex flex-col items-center rounded-xl gap-6 justify-center bg-white mx-auto mb-6 text-xl font-semibold w-11/12 shadow-md p-2`;
 
 const PillImg = tw.img`w-68 h-68 rounded-2xl`;
+
+const BackButton = tw.div`w-11/12 mt-3`;
 
 const IngredientContainer = tw.div`flex flex-col gap-1 ml-2`;
 
@@ -26,6 +28,7 @@ const LikeButton = tw.div`flex flex-row bg-rose-400 w-12 h-12 items-center justi
 
 const PillDetail = ({ pillDetail }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [added, setAdded] = useState(false);
   const { cart } = useSelector(({ cart }) => ({
     cart: cart.cart,
@@ -45,9 +48,11 @@ const PillDetail = ({ pillDetail }) => {
   };
 
   return (
-    <Responsive>
-      <PageHeader cart={cart} />
+    <Responsive className={'my-4'}>
       <PillTitle>
+        <BackButton onClick={() => navigate(-1)} className={'left-0'}>
+          <Back props={'w-8 h-8'} color={'#f43f5e'} />
+        </BackButton>
         <PillImg src={pillDetail.image}></PillImg>
         {pillDetail?.name}
         <LikeButton onClick={onClickHandler}>

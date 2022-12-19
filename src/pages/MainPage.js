@@ -1,7 +1,7 @@
 import Category from '../components/Category/Category';
 import ChatBot from '../components/ChatBot/ChatBot';
-import Header from '../components/ChatBot/Header/Header';
 import Responsive from '../components/common/Responsive';
+import Header from '../components/Header/Header';
 import PillListContainer from '../containers/Pill/PillListContainer';
 import ToggleButtonContainer from '../containers/ToggleButtonContainer';
 
