@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
 
-const PillBlockCardContainer = tw(Link)`gap-2 mx-auto w-5/12 rounded-xl shadow-md p-2 mt-3 bg-white`;
+const PillBlockCardContainer = tw(Link)`gap-2 mx-auto w-72 rounded-xl shadow-md p-2 mt-3 bg-white`;
 
 const PillInfo = tw.div`gap-2 flex flex-col justify-center`;
 

@@ -8,7 +8,7 @@ import loading from './loading';
 import pills, { pillListSaga } from './pills';
 
 import pillDetail, { pillDetailSaga } from './pillDetail';
-import pillIngredient, { pillIngredientSaga } from './pillIngredient';
+import pillIngredient, { cartPillListSaga, pillIngredientSaga } from './pillIngredient';
 
 const rootReducer = combineReducers({
   pillList: pills,
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 });
 
 export function* rootSaga() {
-  yield all([pillListSaga(), pillDetailSaga(), pillIngredientSaga()]);
+  yield all([pillListSaga(), pillDetailSaga(), pillIngredientSaga(), cartPillListSaga()]);
 }
 
 export default rootReducer;
