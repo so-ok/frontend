@@ -14,7 +14,7 @@ const PillListContainer = () => {
   }));
 
   useEffect(() => {
-    dispatch(addListAction(category));
+    dispatch(addListAction({ attentions: [category] }));
   }, [dispatch, category]);
 
   useEffect(() => {
