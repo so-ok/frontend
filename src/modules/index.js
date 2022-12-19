@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
 import { all } from 'redux-saga/effects';
 
-import pills, { pillListSaga } from './pills';
-import loading from './loading';
 import category from './category';
 import listStyle from './listStyle';
+import loading from './loading';
+import pills, { pillListSaga } from './pills';
 
 import pillDetail, { pillDetailSaga } from './pillDetail';
+import pillIngredient, { pillIngredientSaga } from './pillIngredient';
 
 const rootReducer = combineReducers({
   pillList: pills,
@@ -14,10 +15,11 @@ const rootReducer = combineReducers({
   category,
   listStyle,
   pillDetail,
+  pillIngredient,
 });
 
 export function* rootSaga() {
-  yield all([pillListSaga(), pillDetailSaga()]);
+  yield all([pillListSaga(), pillDetailSaga(), pillIngredientSaga()]);
 }
 
 export default rootReducer;

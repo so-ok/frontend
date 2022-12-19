@@ -1,16 +1,15 @@
+import { configureStore } from '@reduxjs/toolkit';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import { configureStore } from '@reduxjs/toolkit';
 import rootReducer, { rootSaga } from './modules';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-import createSagaMiddleware from 'redux-saga';
-import { Provider } from 'react-redux';
 import * as jose from 'jose';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 import { setListStyle } from './modules/listStyle';
-
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
@@ -29,7 +28,6 @@ serviceWorkerRegistration.register();
 
 sagaMiddleware.run(rootSaga);
 
-
 const url = window.location.search;
 const params = new URLSearchParams(url);
 
@@ -37,7 +35,7 @@ const accessToken = params.get('accessToken');
 const refreshToken = params.get('refreshToken');
 
 if (accessToken && refreshToken) {
-  localStorage.setItem('acecssToken', accessToken);
+  localStorage.setItem('accessToken', accessToken);
   localStorage.setItem('refreshToken', refreshToken);
   window.history.replaceState({}, '', '/');
   console.log(jose.decodeJwt(accessToken));
@@ -49,7 +47,6 @@ root.render(
     <App />
   </Provider>,
 );
-
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

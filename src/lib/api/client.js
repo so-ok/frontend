@@ -6,12 +6,12 @@ const client = axios.create({
 });
 
 const getCurrentTimestamp = () => Math.floor(+new Date() / 1000);
-const shouldRenewAccessToken = (exp) => {
+const shouldRenewAccessToken = exp => {
   const criterion = 60 * 60 * 3;
   return exp - getCurrentTimestamp() < criterion;
 };
 
-const renew = async (refreshToken) => {
+const renew = async refreshToken => {
   const data = await client.get(`/auth/renew/${refreshToken}`);
   const newAccessToken = data?.accessToken;
   if (newAccessToken) {
@@ -21,7 +21,7 @@ const renew = async (refreshToken) => {
   throw new Error("can't renew access token...");
 };
 
-client.interceptors.request.use(async (config) => {
+client.interceptors.request.use(async config => {
   let accessToken = localStorage.getItem('accessToken');
   const refreshToken = localStorage.getItem('refreshToken');
 

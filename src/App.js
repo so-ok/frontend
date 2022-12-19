@@ -1,14 +1,19 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import MainPage from './pages/MainPage';
-import AccountPage from './pages/AccountPage';
-import ProfilePage from './pages/ProfilePage';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import PillDetailContainer from './containers/Pill/PillDetailContainer';
+import AccountPage from './pages/AccountPage';
+import MainPage from './pages/MainPage';
+import ProfilePage from './pages/ProfilePage';
 
+const PrivateRouter = () => {
+  const accessToken = localStorage.getItem('accessToken');
+
+  return accessToken === undefined || accessToken === null ? <Navigate to="/account" /> : <MainPage />;
+};
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainPage />,
+    element: <PrivateRouter />,
   },
   {
     path: '/account',

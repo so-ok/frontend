@@ -1,18 +1,17 @@
 import { createAction, handleActions } from 'redux-actions';
 import { takeLatest } from 'redux-saga/effects';
+import { requestPillDetail } from '../lib/api/articles';
 import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestSaga';
-import * as articleAPI from '../lib/api/articles';
 
-const [GET_PILL, GET_PILL_SUCCESS, GET_PILL_FAILURE] =
-  createRequestActionTypes('pills/GET_PILL');
+const [GET_PILL, GET_PILL_SUCCESS, GET_PILL_FAILURE] = createRequestActionTypes('pills/GET_PILL');
 
-export const getPillDetail = createAction(GET_PILL, (id) => ({ id }));
+export const getPillDetail = createAction(GET_PILL, id => ({ id }));
 
-const getPillSaga = createRequestSaga(GET_PILL, articleAPI.requestPillDetail);
+const getPillSaga = createRequestSaga(GET_PILL, requestPillDetail);
 
 const initialState = {
   pillDetail: [],
-  pillListError: null,
+  pillDetailError: null,
 };
 
 export function* pillDetailSaga() {
@@ -27,7 +26,7 @@ const pillDetail = handleActions(
     }),
     [GET_PILL_FAILURE]: (state, { payload: error }) => ({
       ...state,
-      pillListError: error,
+      pillDetailError: error,
     }),
   },
   initialState,

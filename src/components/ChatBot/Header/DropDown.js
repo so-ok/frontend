@@ -14,11 +14,13 @@ const DropDown = () => {
   const [showDrop, setDrop] = useState(false);
 
   const handleDrop = () => {
+    console.log(showDrop);
     setDrop(!showDrop);
   };
+
   return (
     <Nav>
-      <Profile onClick={handleDrop}></Profile>
+      <Profile onClick={handleDrop} onBlur={handleDrop}></Profile>
       <Arrow props={'absolute bottom-0 right-1 items-center w-6 h-6'}></Arrow>
       {showDrop && (
         <DropDownContainer>
