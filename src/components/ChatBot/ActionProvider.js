@@ -22,10 +22,20 @@ class ActionProvider {
     this.setChatbotMessage(message);
   };
 
-  handleBye = () => {
+  handleBye = (any) => {
     const message = this.createChatBotMessage(
       '도움이 필요하면 저를 찾아주세요!',
     );
+    console.log(any);
+    this.setChatbotMessage(message);
+  };
+
+  handleAttentionSelection = () => {
+    const message = this.createChatBotMessage('도움을 줄 수 있는 영양제들입니다.', {
+      delay: 200,
+      widget: 'attentionselection',
+      withAvatar: true,
+    });
     this.setChatbotMessage(message);
   };
 

@@ -8,6 +8,7 @@ import Menu from './widgets/Menu/Menu.jsx';
 import ViewOrder from './widgets/OrderDetails/ViewOrder';
 import Options from './widgets/Options/Options';
 import Attention from './widgets/Additionals/Attention';
+import ChatPillList from './widgets/PillList/ChatPillList';
 
 const BotHeader = tw.div`flex justify-center items-center bg-rose-400 text-white font-bold rounded-t-xl shadow-md h-10`;
 
@@ -39,7 +40,7 @@ const config = {
 
   state: {
     orderedItems: [],
-    selectedAttentions: '',
+    selectedAttention: '',
     preferredSpiceLevel: '',
     userName: '',
     userPhone: '',
@@ -54,7 +55,12 @@ const config = {
     {
       widgetName: 'attentions',
       widgetFunc: (props) => <Attention {...props} />,
-      mapStateToProps: ['selectedAttentions'],
+      mapStateToProps: ['selectedAttention'],
+    },
+    {
+      widgetName: 'attentionselection',
+      widgetFunc: (props) => <ChatPillList {...props} />,
+      mapStateToProps: ['selectedAttention'],
     },
     {
       widgetName: 'menu',
