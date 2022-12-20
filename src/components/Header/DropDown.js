@@ -18,7 +18,9 @@ const DropDown = () => {
     setDrop(!showDrop);
   };
 
-  const onClickHandler = () => {
+  const logout = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
   };
 
   return (
@@ -29,7 +31,7 @@ const DropDown = () => {
         <DropDownContainer>
           <Menu to='/profile'>프로필</Menu>
           <Menu to='/cart'>장바구니</Menu>
-          <Menu onClick={onClickHandler}>로그아웃</Menu>
+          <Menu onClick={logout} to='/account'>로그아웃</Menu>
         </DropDownContainer>
       )}
     </Nav>
