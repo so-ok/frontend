@@ -5,15 +5,15 @@ const client = axios.create({
   baseURL: 'https://api.so-ok.cf',
 });
 
-const getCurrentTimestamp = () => Math.floor(+new Date() / 1000);
+const getCurrentTimestamp = () => Math.floor(new Date() / 1000);
 const shouldRenewAccessToken = exp => {
   const criterion = 60 * 60 * 3;
   return exp - getCurrentTimestamp() < criterion;
 };
 
 const renew = async refreshToken => {
-  const data = await client.get(`/auth/renew/${refreshToken}`);
-  const newAccessToken = data?.accessToken;
+  const response = await axios.post(`${client.defaults.baseURL}/auth/renew`, { refreshToken });
+  const newAccessToken = response?.data.accessToken;
   if (newAccessToken) {
     localStorage.setItem('accessToken', newAccessToken);
     return newAccessToken;
