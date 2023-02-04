@@ -1,5 +1,12 @@
 import axios from 'axios';
 import * as jose from 'jose';
+import { setAccessToken } from '../../modules/auth';
+
+let store;
+
+export const injectStore = _store => {
+  store = _store
+};
 
 const client = axios.create({
   baseURL: 'https://api.so-ok.cf',
@@ -15,15 +22,15 @@ const renew = async refreshToken => {
   const response = await axios.post(`${client.defaults.baseURL}/auth/renew`, { refreshToken });
   const newAccessToken = response?.data.accessToken;
   if (newAccessToken) {
-    localStorage.setItem('accessToken', newAccessToken);
+    store.dispatch(setAccessToken(newAccessToken));
     return newAccessToken;
   }
   throw new Error("can't renew access token...");
 };
 
 client.interceptors.request.use(async config => {
-  let accessToken = localStorage.getItem('accessToken');
-  const refreshToken = localStorage.getItem('refreshToken');
+  let accessToken = store.getState().auth.accessToken;
+  const refreshToken = store.getState().auth.refreshToken;
 
   if (!accessToken) {
     config.headers['Authorization'] = null;
@@ -36,7 +43,6 @@ client.interceptors.request.use(async config => {
 
     config.headers['Authorization'] = `Bearer ${accessToken}`;
   }
-
   return config;
 });
 
