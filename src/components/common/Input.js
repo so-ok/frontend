@@ -50,16 +50,21 @@ peer-focus:-translate-y-2
 left-1
 `;
 
-const Input = ({ type, label, value, handleValue }) => {
+const Input = ({ type, label, value, handleValue, onReturn }) => {
   type = type ?? 'text';
   label = label ?? '';
   value = value ?? '';
-  handleValue = handleValue ?? (() => {
-  });
+
+  const onKeyDown = e => {
+    if (onReturn && e.code === "Enter") {
+      e.preventDefault();
+      onReturn();
+    }
+  }
 
   return (
     <StyledDiv>
-      <StyledInput type={type} placeholder=' ' value={value} onChange={handleValue} />
+      <StyledInput type={type} placeholder=' ' value={value} onChange={handleValue} onKeyDown={onKeyDown} />
       <StyledLabel>{label}</StyledLabel>
     </StyledDiv>
   );

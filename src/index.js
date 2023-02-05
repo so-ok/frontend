@@ -9,39 +9,29 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import * as jose from 'jose';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import { setListStyle } from './modules/listStyle';
+import { injectStore } from './lib/api/client';
+import { setToken } from './modules/auth';
+
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 const sagaMiddleware = createSagaMiddleware();
 const store = configureStore({
   reducer: rootReducer,
   middleware: [sagaMiddleware],
 });
+const persistor = persistStore(store);
 
-const loadLocalStorage = () => {
-  const listStyle = localStorage.getItem('listStyle');
-  const cart = localStorage.getItem('cart');
-  if (!cart) {
-    localStorage.setItem('cart', []);
-  }
-
-  if (!listStyle) return;
-  store.dispatch(setListStyle(JSON.parse(listStyle)));
-};
-
-loadLocalStorage();
+injectStore(store);
 serviceWorkerRegistration.register();
 
 sagaMiddleware.run(rootSaga);
 
-const url = window.location.search;
-const params = new URLSearchParams(url);
-
+const params = new URLSearchParams(window.location.search);
 const accessToken = params.get('accessToken');
 const refreshToken = params.get('refreshToken');
-
 if (accessToken && refreshToken) {
-  localStorage.setItem('accessToken', accessToken);
-  localStorage.setItem('refreshToken', refreshToken);
+  store.dispatch(setToken({ accessToken, refreshToken }));
   window.history.replaceState({}, '', '/');
   console.log(jose.decodeJwt(accessToken));
 }
@@ -49,7 +39,9 @@ if (accessToken && refreshToken) {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <App />
+    <PersistGate loading={null} persistor={persistor}>
+      <App />
+    </PersistGate>
   </Provider>,
 );
 

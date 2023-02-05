@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import PillDetailContainer from './containers/Pill/PillDetailContainer';
 import AccountPage from './pages/AccountPage';
@@ -6,8 +7,7 @@ import MainPage from './pages/MainPage';
 import ProfilePage from './pages/ProfilePage';
 
 const PrivateRouter = () => {
-  const accessToken = localStorage.getItem('accessToken');
-
+  const accessToken = useSelector(state => state.auth.accessToken);
   return accessToken === undefined || accessToken === null ? <Navigate to="/account" /> : <MainPage />;
 };
 

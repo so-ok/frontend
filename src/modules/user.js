@@ -20,16 +20,14 @@ export function* userSaga() {
 
 const user = handleActions(
   {
-    [GET_USER_SUCCESS]: (state, {payload: user}) => ({
+    [GET_USER_SUCCESS]: (state, { payload: user }) => ({
       ...state,
       user: user,
     }),
-  },
-  {
     [GET_USER_FAILURE]: (state, { payload: error }) => ({
       ...state,
       getUserError: error,
-    }),
+    })
   },
   initialState,
 );
