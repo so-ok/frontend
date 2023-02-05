@@ -18,7 +18,6 @@ export const ToggleButton = ({ listStyle }) => {
 
   const handleOnChange = (event) => {
     event.stopPropagation();
-    localStorage.setItem('listStyle', JSON.stringify(event.target.id));
     dispatch(setListStyle(event.target.id));
   };
 

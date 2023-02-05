@@ -6,6 +6,7 @@ import { requestLogin } from '../lib/api/auth';
 const [LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE] = createRequestActionTypes('auth/LOGIN');
 const SET_TOKEN = 'auth/SET_TOKEN';
 const SET_ACCESS_TOKEN = 'auth/SET_ACCESS_TOKEN';
+const CLEAR_TOKEN = 'auth/CLEAR_TOKEN';
 
 export const doLogin = createAction(LOGIN, ({ username, password, onSuccess }) => ({
   username,
@@ -17,6 +18,8 @@ export const setToken = createAction(SET_TOKEN, ({ accessToken, refreshToken }) 
   accessToken,
   refreshToken
 }));
+
+export const clearToken = createAction(CLEAR_TOKEN);
 
 export const setAccessToken = createAction(SET_ACCESS_TOKEN, (accessToken) => accessToken);
 
@@ -56,6 +59,7 @@ const auth = handleActions(
       ...state,
       accessToken: payload
     }),
+    [CLEAR_TOKEN]: (state) => initialState,
   },
   initialState,
 );

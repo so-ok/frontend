@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import tw from 'tailwind-styled-components';
+import { clearToken } from '../../modules/auth';
+import { clearCart } from '../../modules/cart';
 import { Arrow } from '../common/SvgImport';
 
 const Nav = tw.div`relative inline-block`;
@@ -12,6 +15,7 @@ const DropDownContainer = tw.div`absolute z-10 right-0 mt-2 list-none list-outsi
 const Menu = tw(Link)`flex justify-start font-bold items-center w-32 h-12 px-3 transition ease-in-out delay-50 duration-250 hover:bg-rose-400 rounded-md hover:text-white`;
 
 const DropDown = () => {
+  const dispatch = useDispatch();
   const [showDrop, setDrop] = useState(false);
 
   const handleDrop = () => {
@@ -19,9 +23,9 @@ const DropDown = () => {
   };
 
   const logout = () => {
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('refreshToken');
-  };
+    dispatch(clearCart());
+    dispatch(clearToken());
+  }
 
   return (
     <Nav>

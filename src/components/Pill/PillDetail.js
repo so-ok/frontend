@@ -29,20 +29,20 @@ const LikeButton = tw.div`flex flex-row bg-rose-400 w-12 h-12 items-center justi
 const PillDetail = ({ pillDetail }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { cart } = useSelector(state => state.cart);
+  
   const [added, setAdded] = useState(false);
-  const { cart } = useSelector(({ cart }) => ({
-    cart: cart.cart,
-  }));
 
   useEffect(() => {
     setAdded(cart.includes(pillDetail.id));
   }, []);
 
   const onClickHandler = () => {
-    if (!added) {
-      dispatch(addCART(pillDetail.id));
-    } else {
+    if (cart.includes(pillDetail.id)) {
       dispatch(deleteCART(pillDetail.id));
+    }
+    else {
+      dispatch(addCART(pillDetail.id));
     }
     setAdded(!added);
   };
