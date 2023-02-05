@@ -30,8 +30,14 @@ const Login = () => {
   return (
     <Container>
       <LoginContainer>
-        <Input type="text" label="Email" value={email} handleValue={e => setEmail(e.target.value)} />
-        <Input type="password" label="Password" value={pwd} handleValue={e => setPwd(e.target.value)} />
+        <Input type="text" label="Email" value={email}
+          handleValue={e => setEmail(e.target.value)}
+          onReturn={login}
+        />
+        <Input type="password" label="Password" value={pwd}
+          handleValue={e => setPwd(e.target.value)}
+          onReturn={login}
+        />
         <Button onClick={login} className={'mt-2 bg-rose-400 text-white shadow-md mx-auto'}>
           로그인
         </Button>
