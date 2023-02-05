@@ -11,8 +11,16 @@ import pillDetail, { pillDetailSaga } from './pillDetail';
 import pillIngredient, { cartPillListSaga, pillIngredientSaga } from './pillIngredient';
 import user, { userSaga } from './user';
 import auth, { authSaga } from './auth';
+import { persistReducer } from 'redux-persist';
+import storage from "redux-persist/lib/storage";
 
-const rootReducer = combineReducers({
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ["auth", "cart", "listStyle"]
+};
+
+export const rootReducer = combineReducers({
   pillList: pills,
   loading,
   category,
@@ -28,4 +36,4 @@ export function* rootSaga() {
   yield all([pillListSaga(), pillDetailSaga(), pillIngredientSaga(), cartPillListSaga(), userSaga(), authSaga()]);
 }
 
-export default rootReducer;
+export default persistReducer(persistConfig, rootReducer);
